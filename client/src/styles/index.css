@@ -6,15 +6,15 @@
 /* UTILS */
 
 .card {
-  @apply w-2/3 p-2 shadow-lg bg-gray-100 rounded-md flex;
+  @apply w-2/3 p-2 shadow-lg bg-gray-100 rounded-md flex mb-4;
 }
 
 .input {
-  @apply rounded-md shadow-md pl-2 flex-1 mr-2;
+  @apply rounded-md pl-2 flex-1 mr-2 border border-gray-300;
 }
 
 .btn-mini {
-  @apply p-2 rounded-md shadow-md border;
+  @apply p-2 rounded-md shadow-md border hover:bg-opacity-80 active:bg-opacity-60 focus:ring-2 focus:ring-blue-600;
 }
 
 /* HOME */

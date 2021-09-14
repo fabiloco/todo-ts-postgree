@@ -16,6 +16,16 @@ export const getAllTodos = async (req: Request, res: Response) => {
     };
 };
 
+export const getTodo = async (req: Request, res: Response) => {
+    const id = parseInt(req.params.id);
+    try {
+        const response: QueryResult = await pool.query(`SELECT * FROM todo WHERE todo_id=${id};`);
+        res.status(200).json(response.rows);
+    } catch(error: unknown) {
+        console.error('An error has occurred in getAllTodos query: ' + (error as Error).message);
+    };
+};
+
 export const createTodo = async (req: Request, res: Response) => {
     const { description } = req.body;
     try {

@@ -6,7 +6,7 @@
 /* UTILS */
 
 .card {
-  @apply w-2/3 p-2 shadow-lg bg-gray-100 rounded-md flex mb-4;
+  @apply w-2/3 p-2 shadow-lg bg-gray-100 rounded-md  mb-4;
 }
 
 .input {
@@ -20,9 +20,18 @@
 /* HOME */
 
 .home {
-  @apply w-screen h-screen flex justify-center items-center flex-col;
+  @apply w-full h-full flex mt-14 items-center flex-col;
 }
 
 .title {
   @apply text-4xl mb-6;
+}
+
+/* MODAL */
+.popup__container {
+  @apply w-screen h-screen bg-opacity-30 bg-black absolute top-0 left-0 flex justify-center items-center;
+}
+
+.modal__container {
+  @apply w-1/2 h-1/2 shadow-lg rounded-md;
 }

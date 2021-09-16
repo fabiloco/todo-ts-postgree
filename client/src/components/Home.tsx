@@ -1,18 +1,16 @@
-import Button from "./Button";
-
-import { VscAdd } from 'react-icons/vsc';
 import React, { useState, useEffect } from "react";
 
 import Row from './Row';
+import NewTodo from './NewTodo';
 
-type Todo = {
-    todoId: number;
+export type Todo = {
+    todo_id: number;
     description: string;
-    key: number;
 };
 
-const Home = ():JSX.Element => {
 
+const Home = ():JSX.Element => {
+    
     const [loading, setLoading] = useState(false);
     const [todos, setTodos] = React.useState<Todo[]>([]);
 
@@ -37,15 +35,10 @@ const Home = ():JSX.Element => {
             <header className="title">
                 Todo App 📝
             </header>
+            
             <section className="card">
-                <input
-                    className="input"
-                    type="text"
-                    placeholder="some description..."
-                />
-                <Button 
-                    icon={VscAdd}
-                    danger={false}
+                <NewTodo
+                    reloadTodoList={getTodos}
                 />
             </section>
             
@@ -73,7 +66,8 @@ const Home = ():JSX.Element => {
                                 return(
                                     <li key={index}>
                                         <Row
-                                            description={todo.description}
+                                            todo={todo}
+                                            reloadTodoList={getTodos}
                                         />
                                     </li>
                                 );

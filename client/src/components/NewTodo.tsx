@@ -24,6 +24,7 @@ const NewTodo = (props: NewTodoProps):JSX.Element => {
             console.error('Error fetching create todos: ' + (error as Error).message);
         };
         props.reloadTodoList();
+        setNewTodo({ description: '' });
     };
 
     const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,6 +38,7 @@ const NewTodo = (props: NewTodoProps):JSX.Element => {
                 type="text"
                 placeholder="some description..."
                 onChange={handleInput}
+                value={newTodo.description}
             />
             <Button 
                 icon={VscAdd}

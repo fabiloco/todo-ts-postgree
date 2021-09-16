@@ -18,14 +18,11 @@ const Row = (props: RowProps): JSX.Element => {
     
     const [isModalVisible, setIsModalVisible] = useState(false);
 
-    const handleModalVisibility = (e: any) => {
-        console.log(e.target.classList);
-        if(e.target.classList.contains('popup__container') || e.target.classList.contains('btn-mini') || e.target.classList.contains('btn-icon')) {
-            if(isModalVisible) {
-                setIsModalVisible(false);
-            } else {
-                setIsModalVisible(true);
-            }
+    const handleModalVisibility = (e: React.MouseEvent<HTMLElement>) => {
+        if(isModalVisible) {
+            setIsModalVisible(false);
+        } else {
+            setIsModalVisible(true);
         }
     };
 
@@ -64,7 +61,7 @@ const Row = (props: RowProps): JSX.Element => {
                 isModalVisible
                 ?
                 <Modal
-                    handleVisibily={handleModalVisibility}
+                    handleVisibility={handleModalVisibility}
                     reloadTodoList={props.reloadTodoList}
                     oldTodo={props.todo}
                 />

@@ -5,7 +5,7 @@ import Button from "./Button";
 
 import axios from 'axios';
 
-type _NewTodo = {
+export type _NewTodo = {
     description: string;
 };
 

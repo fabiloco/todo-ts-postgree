@@ -33,5 +33,9 @@
 }
 
 .modal__container {
-  @apply w-1/2 h-1/2 shadow-lg rounded-md;
+  @apply w-1/2 shadow-lg rounded-md bg-white flex flex-col pt-6 pb-6 pl-12 pr-12;
+}
+
+.input {
+  @apply rounded-md p-2 pl-3 mr-2 border border-gray-300 bg-white text-lg;
 }

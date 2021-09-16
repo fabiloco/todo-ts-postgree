@@ -13,7 +13,7 @@ const Button = (props: ButtonProps): JSX.Element => {
                 className="btn-mini bg-red-500 border-red-200"
                 onClick={props.buttonAction}
             >
-                <props.icon className="text-white text-lg" />
+                <props.icon className="text-white text-lg btn-icon" />
             </button>
         );
     } else {

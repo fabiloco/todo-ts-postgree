@@ -18,6 +18,17 @@ const Row = (props: RowProps): JSX.Element => {
     
     const [isModalVisible, setIsModalVisible] = useState(false);
 
+    const handleModalVisibility = (e: any) => {
+        console.log(e.target.classList);
+        if(e.target.classList.contains('popup__container') || e.target.classList.contains('btn-mini') || e.target.classList.contains('btn-icon')) {
+            if(isModalVisible) {
+                setIsModalVisible(false);
+            } else {
+                setIsModalVisible(true);
+            }
+        }
+    };
+
     const handleDeleteAction = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
         try {
@@ -26,16 +37,6 @@ const Row = (props: RowProps): JSX.Element => {
             console.error('Error fetching delete todo: ' + (error as Error).message);
         };
         props.reloadTodoList();
-    };
-
-    const handleEditAction = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        // e.preventDefault();
-        // try {
-        //     await axios.post(`http://localhost:3001/todos/${props.todo.todo_id}`, props.todo);
-        // } catch(error: unknown) {
-        //     console.error('Error fetching delete todo: ' + (error as Error).message);
-        // };
-        // props.reloadTodoList();
     };
 
     return(
@@ -48,7 +49,7 @@ const Row = (props: RowProps): JSX.Element => {
                     <Button
                         icon={VscEdit}
                         danger={false}
-                        buttonAction={handleEditAction}
+                        buttonAction={handleModalVisibility}
                     />
                     <Button 
                         icon={VscTrash}
@@ -63,7 +64,9 @@ const Row = (props: RowProps): JSX.Element => {
                 isModalVisible
                 ?
                 <Modal
-
+                    handleVisibily={handleModalVisibility}
+                    reloadTodoList={props.reloadTodoList}
+                    oldTodo={props.todo}
                 />
                 :
                 <></>
